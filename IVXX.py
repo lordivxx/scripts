@@ -1,10 +1,14 @@
 #!/usr/bin/python
 import textwrap
+import sys
+import subprocess
 
 authon = False
 #authon = True
+weather_support = True
 
-
+if weather_support == False:
+	print "Weather Support has been turn off."	
 
 class IVXX(object):
 
@@ -32,16 +36,26 @@ class IVXX(object):
 			return True
 		else:
 			return False
+
 	def count_out_loud(self):
-		for i in range(int(self.get_user_input("What is the first number? ")), int(self.get_user_input("What is the last number? ")) + 1):
+		for i in range(int(self.get_user_input("What is the first number? ")),int(self.get_user_input("What is the last number? ")) + 1):
 			print i
+
+	def get_weather(self):
+		proc=subprocess.Popen('/usr/local/bin/weatherpy', shell=True, stdout=subprocess.PIPE, )
+		p1=proc.communicate()[0]
+		print p1 
+		return p1
+		
+
 	def menu(self):
 		print textwrap.dedent("""\
 		### Menu ###
 		1. Count Out Loud
 		2. Ask Pass
 		3. Greet
-		4. Quit
+		4. Current Weather
+		q. Quit
 		############
 		""")
 		choice = self.get_user_input("Where to Sir: ")
@@ -55,6 +69,11 @@ class IVXX(object):
 		elif choice == "3":
 			self.greet()
 		elif choice == "4":
+			print "\n" * 20
+			print "Gathering data now ..."
+			print "\n" * 20
+			self.get_weather()	
+		elif choice == "q":
 			exit()	
 		else:
 			x.menu()
