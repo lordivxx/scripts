@@ -11,6 +11,6 @@ class HttpSimpleServer(BaseHTTPServer.BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
-    httpd = server_class(('', 8080), HttpSimpleServer)
+    httpd = server_class(('', 8420), HttpSimpleServer)
     httpd.serve_forever()
     httpd.server_close()
