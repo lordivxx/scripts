@@ -2,5 +2,7 @@
 
 from IVXX import IVXX
 
-#ivxx = IVXX("ivxx")
+x = IVXX("ivxx")
+x.authcheck()
+x.menu()
 
