@@ -19,3 +19,6 @@ echo ""
 echo "*********** Begin SAR ***********"
 echo ""
 sar -n TCP
+echo ""
+echo ""
+echo "**********************"
