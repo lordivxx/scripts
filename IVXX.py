@@ -27,6 +27,12 @@ class IVXX(object):
 		print "\n" * 10
 		print "Welcome " + self.name + " would you like to play a game? "		
 
+	def report_speed(self):
+		proc=subprocess.Popen('/home/pi/speedtest/Report_Speed_Test_Results.sh', shell=True, stdout=subprocess.PIPE, )
+                p1=proc.communicate()[0]
+                print p1
+                return p1
+
 	def send_output(self,data):
 		self.output = data
 		print self.output
@@ -55,6 +61,7 @@ class IVXX(object):
 		2. Ask Pass
 		3. Greet
 		4. Current Weather
+		5. Show Recent Speed Test Results
 		q. Quit
 		############
 		""")
@@ -73,6 +80,8 @@ class IVXX(object):
 			print "Gathering data now ..."
 			print "\n" * 20
 			self.get_weather()	
+		elif choice == "5":
+			self.report_speed()
 		elif choice == "q":
 			exit()	
 		else:
