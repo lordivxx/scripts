@@ -59,6 +59,14 @@ class IVXX(object):
 		print p1 
 		return p1
 		
+	def build_positional_argparse(self,input):
+                import argparse
+
+                parser = argparse.ArgumentParser()
+                parser.add_argument(input, nargs='?', default="check_string_for_empty")
+                args = parser.parse_args()
+                return args.input
+		
 
 	def menu(self):
 		print textwrap.dedent("""\
