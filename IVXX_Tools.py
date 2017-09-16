@@ -79,7 +79,7 @@ class IVXX(object):
 		q. Quit
 		############
 		""")
-		choice = self.get_user_input("Where to Sir: ")
+		choice = self.get_user_input("Where to " + self.name + ": ")
 		if choice == "1":
 			self.count_out_loud()
 		elif choice == "2":
