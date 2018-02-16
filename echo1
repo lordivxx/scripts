@@ -1,0 +1,2 @@
+#!/bin/bash -l 
+ssh -i ~/.ssh/CloudKeyNorCal.pem ec2-user@54.215.173.77 
