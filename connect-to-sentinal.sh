@@ -1,4 +1,4 @@
 #!/bin/bash -l
 
 
-ssh root@192.168.1.133
+ssh -i ~/.ssh/sentinal-key root@192.168.1.133

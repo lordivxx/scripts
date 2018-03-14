@@ -1,0 +1,3 @@
+#!/bin/bash -l
+
+asciinema play -s 10 /home/forsythc/showme-login-hpcc.json
