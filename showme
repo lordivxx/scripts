@@ -1,0 +1,29 @@
+#!/bin/bash -l
+
+
+
+
+
+case "$1" in
+  list)
+        echo "login - Login to hpcc"
+        ;;
+  login)
+        asciinema play -s 10 /home/forsythc/asciinema/showme-login-hpcc.json 
+        ;;
+  cfn-setup)
+        asciinema play -s 10 /home/forsythc/asciinema/setup-cfncluster.json 
+        ;;
+  interactive-session)
+        asciinema play -s 10 /home/forsythc/asciinema/interactive-session.json 
+        ;;
+  *)
+        echo "----"
+        echo "showme login - How to login to HPCC"
+        echo "showme cfn-setup - How to setup cfncluster on HPCC"
+        echo "showme interactive-session - How to request an interactive session on the HPCC Cluster"
+        echo "----"
+        exit 1
+esac
+exit 0
+
