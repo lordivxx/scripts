@@ -1,1 +1,1 @@
-tar -zcvf $HOME/jenkins-docker.tar.gz /var/jenkins_home
+cd /var/; tar -zcvf $HOME/jenkins-docker.tar.gz ./jenkins_home
