@@ -1,1 +1,1 @@
-cd /var/; tar -zcvf /home/Documents/jenkins-docker-backup/jenkins-docker.tar.gz ./jenkins_home; chown forsythc:forsythc /home/Documents/jenkins-docker-backup/jenkins-docker.tar.gz
+cd /var/jenkins_home; tar -C /var/lib/docker/volumes/jenkins-data/_data/ -zcvf /home/Documents/jenkins-docker-backup/jenkins-docker.tar.gz . 
