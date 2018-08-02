@@ -14,6 +14,7 @@ import random
 
 
 def fight(bhp,batk,bdef,mhp,matk,mdef):
+    count = 0
     while bhp > 0 and mhp > 0:
         #battack = random.randint(1, int(batk))
         #mattack = random.randint(1, int(matk))
@@ -27,17 +28,18 @@ def fight(bhp,batk,bdef,mhp,matk,mdef):
         
         if bhp > mhp:
            
-           winning = "Beast"
-           howmuch = bhp - mhp
+            winning = "Beast"
+            howmuch = bhp - mhp
 
         if mhp > bhp:
 
-           winning = "Monster"
-           howmuch = mhp - bhp
+            winning = "Monster"
+            howmuch = mhp - bhp
            
         howmuchlen = len(str(howmuch))
         howmuch = howmuch / howmuchlen
-        
+        count += count
+        print(count)
         #print (str(bhp),str(mhp),winning + "by" + str(howmuch)) 
         
         #os.system('clear')
@@ -48,7 +50,7 @@ def fight(bhp,batk,bdef,mhp,matk,mdef):
 
         #sys.stdout.flush()
         #time.sleep(0.25)
-    return bhp,mhp
+    return bhp,mhp,count
 
 
 
