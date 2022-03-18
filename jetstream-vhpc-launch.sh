@@ -4,7 +4,6 @@ dnf update -y
 systemctl enable --now cockpit.socket
 dnf install -y cockpit-pcp cockpit-machines
 adduser researchcomputing
-echo researchcomputing:new_password | chpasswd
 usermod -aG users,wheel researchcomputing
 dnf install -y https://github.com/45Drives/cockpit-navigator/releases/download/v0.5.8/cockpit-navigator-0.5.8-1.el8.noarch.rpm
 dnf install -y cockpit-pcp cockpit-packagekit cockpit-storaged
@@ -71,9 +70,9 @@ echo """
 <domain type='kvm' id='14'>
   <name>n1</name>
   <uuid>c4aaf005-0cf5-46e9-b057-6e674573ff67</uuid>
-  <metadata xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0" xmlns:cockpit_machines="https://github.com/cockpit-project/cockpit-machines">
+  <metadata xmlns:libosinfo=\"http://libosinfo.org/xmlns/libvirt/domain/1.0\" xmlns:cockpit_machines=\"https://github.com/cockpit-project/cockpit-machines\">
     <libosinfo:libosinfo>
-      <libosinfo:os id="http://centos.org/centos-stream/8"/>
+      <libosinfo:os id=\"http://centos.org/centos-stream/8\"/>
     </libosinfo:libosinfo>
     <cockpit_machines:data>
       <cockpit_machines:has_install_phase>false</cockpit_machines:has_install_phase>
@@ -290,9 +289,9 @@ echo """
 <domain type='kvm' id='12'>
   <name>n2</name>
   <uuid>1d2e11c7-2ddb-4360-92b1-1e771e67553f</uuid>
-  <metadata xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0" xmlns:cockpit_machines="https://github.com/cockpit-project/cockpit-machines">
+  <metadata xmlns:libosinfo=\"http://libosinfo.org/xmlns/libvirt/domain/1.0\" xmlns:cockpit_machines=\"https://github.com/cockpit-project/cockpit-machines\">
     <libosinfo:libosinfo>
-      <libosinfo:os id="http://centos.org/centos-stream/8"/>
+      <libosinfo:os id=\"http://centos.org/centos-stream/8\"/>
     </libosinfo:libosinfo>
     <cockpit_machines:data>
       <cockpit_machines:has_install_phase>false</cockpit_machines:has_install_phase>
@@ -509,9 +508,9 @@ echo """
 <domain type='kvm' id='13'>
   <name>n3</name>
   <uuid>dc0c876f-847f-4fce-88d6-41880c87c7eb</uuid>
-  <metadata xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0" xmlns:cockpit_machines="https://github.com/cockpit-project/cockpit-machines">
+  <metadata xmlns:libosinfo=\"http://libosinfo.org/xmlns/libvirt/domain/1.0\" xmlns:cockpit_machines=\"https://github.com/cockpit-project/cockpit-machines\">
     <libosinfo:libosinfo>
-      <libosinfo:os id="http://centos.org/centos-stream/8"/>
+      <libosinfo:os id=\"http://centos.org/centos-stream/8\"/>
     </libosinfo:libosinfo>
     <cockpit_machines:data>
       <cockpit_machines:has_install_phase>false</cockpit_machines:has_install_phase>
@@ -723,8 +722,6 @@ echo """
 """ > n3.xml
 
 virsh define n3.xml
-
-
 
 echo """
 10.4.20.1 vhpc
