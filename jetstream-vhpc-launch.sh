@@ -99,9 +99,12 @@ virsh start n1
 virsh start n2
 virsh start n3
 
+sleep 30
 
 cp jetstream-vhpc/vhpc /root/.ssh/vhpc
 cp jetstream-vhpc/vhpc.pub /root/.ssh/vhpc.pub
 cp jetstream-vhpc/config /root/.ssh/config
 
-for x in n1 n2 n3; do ssh $x hostnamectl set-hostname $x; done
+#for x in n1 n2 n3; do ssh $x hostnamectl set-hostname $x; done
+
+#pdsh -w n[1-3] uptime
