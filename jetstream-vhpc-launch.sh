@@ -733,4 +733,4 @@ echo """
 10.4.20.13 n3
 """ >> /etc/hosts
 
-dnf -y install pdsh 
+dnf -y install pdsh pdsh-rcmd-ssh
