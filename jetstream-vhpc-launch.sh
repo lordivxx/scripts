@@ -81,11 +81,11 @@ pip install gdown
 
 gdown https://drive.google.com/drive/folders/1170b6nraaleesZqaLksft6XauyoZ96pZ?usp=sharing -O ./ --folder
 
-cd jetstream-vhpc && tar -zxvf c83.tar.gz && cd ..
+cd jetstream-vhpc && tar -zxvf n1.tar.gz && cd ..
 
-cp jetstream-vhpc/c83.qcow2 /vhpc/storage-pool/n1
-cp jetstream-vhpc/c83.qcow2 /vhpc/storage-pool/n2
-mv jetstream-vhpc/c83.qcow2 /vhpc/storage-pool/n3
+cp jetstream-vhpc/n1 /vhpc/storage-pool/n1
+cp jetstream-vhpc/n1 /vhpc/storage-pool/n2
+mv jetstream-vhpc/n1 /vhpc/storage-pool/n3
 
 virsh define jetstream-vhpc/n1.xml
 virsh define jetstream-vhpc/n2.xml
@@ -99,3 +99,9 @@ virsh start n1
 virsh start n2
 virsh start n3
 
+
+cp jetstream-vhpc/vhpc /root/.ssh/vhpc
+cp jetstream-vhpc/vhpc.pub /root/.ssh/vhpc.pub
+cp jetstream-vhpc/config /root/.ssh/config
+
+for x in n1 n2 n3; do ssh $x hostnamectl set-hostname $x; done
