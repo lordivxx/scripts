@@ -724,3 +724,13 @@ echo """
 
 virsh define n3.xml
 
+
+
+echo """
+10.4.20.1 vhpc
+10.4.20.11 n1
+10.4.20.12 n2
+10.4.20.13 n3
+""" >> /etc/hosts
+
+dnf -y install pdsh 
