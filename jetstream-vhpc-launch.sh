@@ -40,7 +40,7 @@ echo """
   </dns>
   <ip address='10.4.20.1' netmask='255.255.255.0' localPtr='yes'>
     <dhcp>
-      <range start='10.4.20.11' end='10.4.20.13'/>
+      <range start='10.4.20.10' end='10.4.20.20'/>
       <host mac='52:54:00:b8:21:17' ip='10.4.20.11'/>
       <host mac='52:54:00:55:d3:1e' ip='10.4.20.12'/>
       <host mac='52:54:00:09:1b:34' ip='10.4.20.13'/>
@@ -730,4 +730,8 @@ echo """
 10.4.20.13 n3
 """ >> /etc/hosts
 
-dnf -y install pdsh pdsh-rcmd-ssh
+dnf -y install pdsh pdsh-rcmd-ssh environment-modules
+
+echo "/vhpc/opt/modules" > /etc/environment-modules/modulespath
+
+
