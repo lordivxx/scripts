@@ -108,3 +108,13 @@ cp jetstream-vhpc/vhpc.pub /root/.ssh/vhpc.pub
 cp jetstream-vhpc/config /root/.ssh/config
 cat .ssh/vhpc.pub >> .ssh/authorized_keys
 
+cp jetstream-vhpc/slurm.conf /etc/slurm/slurm.conf
+cp jetstream-vhpc/munge.key /etc/munge/munge.key
+chmod 400 /etc/munge/munge.key
+
+systemctl enable munge
+systemctl restart munge
+systemctl restart slurmctld
+systemctl restart slurmd
+
+
