@@ -110,10 +110,14 @@ cat .ssh/vhpc.pub >> .ssh/authorized_keys
 cp jetstream-vhpc/known_hosts /root/.ssh/known_hosts
 
 cp jetstream-vhpc/slurm.conf /etc/slurm/slurm.conf
+sed -i "s/js-16-133.jetstream-cloud.org/$(hostname)/g" /etc/slurm/slurm.conf
+
 cp -f jetstream-vhpc/munge.key /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 
 for x in n1 n2 n3; do ssh $x hostnamectl set-hostname $x; done
+for x in n1 n2 n3; do scp /etc/slurm/slurm.conf $x:/etc/slurm/slurm.conf ; done
+pdsh -w n[1-3] "systemctl restart slurmd"
 
 systemctl enable munge
 systemctl restart munge
