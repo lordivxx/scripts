@@ -110,7 +110,7 @@ cat .ssh/vhpc.pub >> .ssh/authorized_keys
 cp jetstream-vhpc/known_hosts /root/.ssh/known_hosts
 
 cp jetstream-vhpc/slurm.conf /etc/slurm/slurm.conf
-cp jetstream-vhpc/munge.key /etc/munge/munge.key
+cp -f jetstream-vhpc/munge.key /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 
 for x in n1 n2 n3; do ssh $x hostnamectl set-hostname $x; done
