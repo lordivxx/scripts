@@ -11,6 +11,7 @@ dnf install -y htop
 rm /etc/systemd/system/rpcbind.service
 systemctl enable rpcbind && systemctl start rpcbind
 dnf install -y nfs-utils
+systemctl enable nfs-server.service
 systemctl start nfs-server.service
 dnf install -y cockpit-file-sharing
 wget http://www.ni-sp.com/wp-content/uploads/2019/10/SLURM_installation.sh
