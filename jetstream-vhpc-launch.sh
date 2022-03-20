@@ -63,6 +63,8 @@ mkdir -p /vhpc/opt/modules
 virsh pool-create-as --name vhpc --type dir --target /vhpc/storage-pool --print-xml > vhpc-storage-pool-shorter.xml
 virsh pool-define vhpc-storage-pool-shorter.xml && virsh pool-start vhpc && virsh pool-autostart vhpc
 
+firewall-cmd --permanent --zone=libvirt --add-port=2049/tcp && firewall-cmd --permanent --zone=libvirt --add-port=2049/udp && firewall-cmd --permanent --zone=libvirt --add-port=111/tcp && firewall-cmd --permanent --zone=libvirt --add-port=111/udp
+
 #virsh vol-create-as --pool vhpc --name n1 --capacity 10G --format qcow2
 #virsh vol-create-as --pool vhpc --name n2 --capacity 10G --format qcow2
 #virsh vol-create-as --pool vhpc --name n3 --capacity 10G --format qcow2
